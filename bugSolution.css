@@ -1,0 +1,32 @@
+/* bugSolution.css */
+
+.focusable {
+  outline: none;
+}
+
+.focusable:focus {
+  /* Styles that should only appear on keyboard focus */
+  box-shadow: 0 0 0 3px #007bff;
+}
+
+/* JavaScript to handle cases where :focus-visible doesn't work as expected */
+
+const focusableElements = document.querySelectorAll('.focusable');
+
+focusableElements.forEach(element => {
+  element.addEventListener('focus', (event) => {
+    // Check if focus was triggered by keyboard or mouse
+    if (event.detail === 0) {  // 0 implies keyboard focus in most browsers
+      element.classList.add('focused-by-keyboard');
+    } 
+  });
+
+  element.addEventListener('blur', () => {
+    element.classList.remove('focused-by-keyboard');
+  });
+});
+
+/* Optional: Add this CSS rule to style with the JS-added class */
+.focused-by-keyboard {
+  box-shadow: 0 0 0 3px #007bff;
+} 
