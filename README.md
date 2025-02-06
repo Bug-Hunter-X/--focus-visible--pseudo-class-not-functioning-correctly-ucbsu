@@ -1,0 +1,1 @@
+This repository demonstrates a common issue with the CSS `:focus-visible` pseudo-class.  The bug showcases a scenario where styling intended for keyboard-only focus isn't applied correctly. The solution offers a workaround using JavaScript to detect keyboard focus.
